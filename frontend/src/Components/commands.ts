@@ -27,6 +27,7 @@ export const commands: Command[] = [
     addHistory("  🟢 echo [text]         - Prints the input text");
     addHistory("  🟢 hack                - Simulates a hacking process");
     addHistory("  🟢 start               - Starts the terminal");
+    addHistory("  🟢 reload              - Reloads the page");
     addHistory("  🟢 exit                - Exits the terminal");
     addHistory("  🟢 change-name [name]  - Change your username");
     addHistory("  🟢 dir / ls            - Lists files and directories");
@@ -86,6 +87,15 @@ export const commands: Command[] = [
       addHistory("Exiting terminal...");
       await new Promise(r => setTimeout(r, 800));
       addHistory("Terminal exited successfully!");
+    }
+  },
+  {
+    name: "reload",
+    description: "Reloads the page",
+    execute: async (_args: string[], addHistory) => {
+      addHistory("Reloading page...");
+      await new Promise(r => setTimeout(r, 800));
+      window.location.reload();
     }
   },
 {

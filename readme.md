@@ -54,6 +54,7 @@ npm run dev
 | `hack`             | Hacking simülasyonu başlatır                    |
 | `start`            | Terminali başlatır                              |
 | `exit`             | Terminali kapatır                               |
+| `reload`           | Sayfayı yeniden yükler                          |
 | `change-name`      | Kullanıcı adını değiştirir (localStorage)       |
 | `whoami`           | Şu anki kullanıcı adını gösterir                |
 | `sudo su`          | Root olur, sistem komutları aktifleşir          |
