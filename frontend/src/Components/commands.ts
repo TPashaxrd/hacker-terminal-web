@@ -25,9 +25,12 @@ export const commands: Command[] = [
     addHistory("  🟢 start               - Starts the terminal");
     addHistory("  🟢 exit                - Exits the terminal");
     addHistory("  🟢 change-name [name]  - Change your username");
+    addHistory("  🟢 dir / ls            - Lists files and directories");
+    addHistory("  🟢 dir/s               - Lists files and directories with sizes");
     addHistory("  🔐 sudo su             - Become root");
     addHistory("  🔥 sudo rm -rf /       - Simulated system wipe");
     addHistory("  👤 whoami              - Show current user");
+
   }
 },
   {
@@ -172,5 +175,55 @@ export const commands: Command[] = [
   execute: async (_, addHistory, { isRoot }) => {
     addHistory(isRoot ? "root" : "user");
   }
+},
+{
+  name: "dir",
+  description: "Lists directories and files in current folder",
+  execute: async (_args, addHistory) => {
+    const username = localStorage.getItem("username") || "user";
+    const files = [
+      "Documents",
+      "Downloads",
+      "Pictures",
+      "Music",
+      "Videos",
+      ".bashrc",
+      ".config",
+      "Desktop",
+    ];
+    addHistory(`\nroot@${username}:/# ls`);
+    files.forEach(file => {
+      addHistory(file);
+    });
+  }
+},
+{
+  name: "dir/s",
+  description: "Lists all directories and files recursively (simulated)",
+  execute: async (_args, addHistory) => {
+    const username = localStorage.getItem("username") || "user";
+    const structure = [
+      `/home/${username}/Documents/resume.docx`,
+      `/home/${username}/Documents/hack_notes.txt`,
+      `/home/${username}/Downloads/game.tar.gz`,
+      `/home/${username}/Pictures/meme.png`,
+      `/home/${username}/Music/beat.mp3`,
+      `/home/${username}/Videos/movie.mp4`,
+      `/home/${username}/Desktop/virus.sh`,
+      `/home/${username}/Desktop/README.md`,
+      `/etc/hostname`,
+      `/etc/passwd`,
+      `/var/log/syslog`,
+      `/usr/bin/python3`,
+    ];
+
+    addHistory(`\nroot@${username}:/# ls -R`);
+    for (const path of structure) {
+      addHistory(path);
+      await new Promise(r => setTimeout(r, 80)); // yavaş animasyon
+    }
+    addHistory(`\nTotal files listed: ${structure.length}`);
+  }
 }
+
 ];
