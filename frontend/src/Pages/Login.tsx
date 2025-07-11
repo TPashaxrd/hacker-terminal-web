@@ -29,13 +29,11 @@ export default function KaliHollywoodLogin() {
     <>
       <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex items-center justify-center px-6">
         <div className="relative w-full max-w-lg bg-black bg-opacity-90 border border-red-600 rounded-lg shadow-[0_0_30px_#ff0000] p-10 overflow-hidden">
-          {/* Glitch background effect */}
           <div className="absolute top-0 left-0 w-full h-full bg-[url('/glitch-noise.png')] opacity-20 pointer-events-none animate-glitch"></div>
 
           <h1 className="relative z-10 text-4xl font-extrabold text-red-600 uppercase tracking-widest mb-8 select-none">
-            <span className="drop-shadow-[0_0_5px_red]">KALI HOLLYWOOD</span>
+            <span className="drop-shadow-[0_0_5px_red]">KALI LOGIN</span>
           </h1>
-
           <form
             onSubmit={(e) => {
               e.preventDefault();
