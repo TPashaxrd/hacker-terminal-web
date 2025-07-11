@@ -169,7 +169,7 @@ export const commands: Command[] = [
 {
   name: "help",
   description: "Shows available commands",
-  execute: async (args, addHistory, ctx) => {
+  execute: async (_: unknown, addHistory) => {
     addHistory("Available commands: help, clear, echo [text], hack, start, exit, sudo su, sudo rm -rf /, whoami");
   }
 },

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { commands } from "../Components/commands";
+import ForDeveloper from "../Components/ForDeveloper";
 
 export default function Terminal() {
   const [input, setInput] = useState("");
@@ -13,6 +14,20 @@ export default function Terminal() {
   const [exited, setExited] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [isLogin, setIsLogin] = useState(false);
+  
+useEffect(() => {
+    function handleLogin() {
+        if (localStorage.getItem("username") && localStorage.getItem("password")) {
+            setIsLogin(true);
+            const username = localStorage.getItem("username");
+            console.log(`${username ? username.charAt(0).toUpperCase() + username.slice(1) : ""} logged in. ${isLogin}`);
+        } else {
+            window.location.href = "/";
+        }
+    }
+    handleLogin();
+}, []);
 
   useEffect(() => {
     const storedName = localStorage.getItem("username");
@@ -193,10 +208,13 @@ function MatrixEffect() {
   }, []);
 
   return (
-    <canvas
+    <>
+         <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-screen h-screen pointer-events-none opacity-20 z-0"
     />
+    <ForDeveloper />
+    </>
   );
 }
     

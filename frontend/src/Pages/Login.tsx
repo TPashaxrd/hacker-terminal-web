@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TerminalToast from "../Components/TerminalToast";
+import ForDeveloper from "../Components/ForDeveloper";
 
 export default function Login() {
     const [username, setUsername] = useState("");
@@ -68,6 +69,7 @@ export default function Login() {
                 </div>
             </div>
             {error && <TerminalToast message={errorMessage} />}
+           <ForDeveloper /> 
         </>
     );
 }
