@@ -1,7 +1,10 @@
 export type CommandContext = {
   isRoot: boolean;
   setIsRoot: React.Dispatch<React.SetStateAction<boolean>>;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  name: string;
 };
+
 
 export type Command = {
   name: string;
@@ -12,6 +15,7 @@ export type Command = {
     ctx: CommandContext
   ) => Promise<void> | void;
 };
+
 export const commands: Command[] = [
 {
   name: "help",
