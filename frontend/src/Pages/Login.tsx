@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TerminalToast from "../Components/TerminalToast";
+import CustomContextMenu from "../Components/CustomContextMenu";
 
 export default function KaliHollywoodLogin() {
   const [username, setUsername] = useState("");
@@ -89,6 +90,7 @@ export default function KaliHollywoodLogin() {
 
         </div>
       </div>
+      <CustomContextMenu />
     </>
   );
 }
