@@ -1,13 +1,14 @@
 export type CommandContext = {
   isRoot: boolean;
   setIsRoot: React.Dispatch<React.SetStateAction<boolean>>;
-  setName: React.Dispatch<React.SetStateAction<string>>;
-  name: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;  // buraya ekle
+  username: string; // buraya ekle
 };
 
 
 export type Command = {
   name: string;
+  
   description: string;
   execute: (
     args: string[],
