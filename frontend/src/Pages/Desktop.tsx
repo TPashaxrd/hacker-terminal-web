@@ -1,9 +1,15 @@
 import { useState } from "react";
 import Terminal from "../Components/Terminal";
+import HollywoodTerminal from "../Components/HollywoodTerminal";
+import BTCFakeTerminal from "../Components/BTCFakeTerminal";
 import { FiTerminal } from "react-icons/fi";
+import { FaFilm } from "react-icons/fa";
+import { FaBitcoin } from "react-icons/fa";
 
 export default function Desktop() {
   const [terminalOpen, setTerminalOpen] = useState(false);
+//   const [hollywoodOpen, setHollywoodOpen] = useState(false);
+  const [btcOpen, setBtcOpen] = useState(false);
 
   return (
     <>
@@ -24,17 +30,29 @@ export default function Desktop() {
           <span>Battery</span>
         </div>
       </div>
-
       <div className="fixed top-10 left-0 w-16 h-[calc(100vh-2.5rem)] bg-black bg-opacity-90 flex flex-col items-center py-4 space-y-6 z-50 shadow-lg border-r border-pink-600/70">
         <button
           title="Terminal"
-          onClick={() => setTerminalOpen((open) => !open)}
+          onClick={() => setTerminalOpen((o) => !o)}
           className="p-3 rounded-full bg-gradient-to-br from-pink-700 to-pink-400 shadow-[0_0_10px_#ff00c8] hover:shadow-[0_0_25px_#ff00c8] transition-all duration-300"
         >
           <FiTerminal size={28} className="text-white" />
         </button>
+        <button
+          title="Hollywood Terminal"
+        //   onClick={() => setHollywoodOpen((o) => !o)}
+          className="p-3 rounded-full bg-gradient-to-br from-red-700 to-red-400 shadow-[0_0_10px_#ff0000] hover:shadow-[0_0_25px_#ff0000] transition-all duration-300"
+        >
+          <FaFilm size={24} className="text-white" />
+        </button>
+        <button
+          title="BTC Simulator"
+          onClick={() => setBtcOpen((o) => !o)}
+          className="p-3 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-400 shadow-[0_0_10px_#ffb300] hover:shadow-[0_0_25px_#ffb300] transition-all duration-300"
+        >
+          <FaBitcoin size={26} className="text-white" />
+        </button>
       </div>
-
       <div className="absolute top-10 left-16 right-0 bottom-0 bg-gradient-to-br from-black via-[#12071a] to-[#300a24] p-6 select-none z-0 flex items-center justify-center">
         <div className="flex flex-col items-center">
           <div className="w-20 h-20 md:w-28 md:h-28 bg-transparent border-4 border-pink-600 rounded-lg mb-3 flex items-center justify-center text-pink-400 text-4xl font-extrabold shadow-[0_0_20px_#ff00c8] animate-pulse cursor-default select-none">
@@ -46,9 +64,11 @@ export default function Desktop() {
         </div>
       </div>
 
-      {terminalOpen && (
-        <Terminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
-      )}
+      <HollywoodTerminal  />
+
+      {terminalOpen && <Terminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />}
+
+      {btcOpen && <BTCFakeTerminal open={btcOpen} onClose={() => setBtcOpen(false)} />}
     </>
   );
 }

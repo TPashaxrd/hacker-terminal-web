@@ -1,8 +1,7 @@
 import { useState } from "react";
 import TerminalToast from "../Components/TerminalToast";
-import ForDeveloper from "../Components/ForDeveloper";
 
-export default function Login() {
+export default function KaliHollywoodLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -10,13 +9,13 @@ export default function Login() {
 
   function handleSubmit() {
     if (!username || !password) {
-      setErrorMessage("Please enter both username and password.");
+      setErrorMessage("Enter both username and password, hacker!");
       setError(true);
       setTimeout(() => setError(false), 4000);
       return;
     }
-    if (username !== "root" || password !== "toor") {
-      setErrorMessage("Invalid username or password.");
+    if (username !== "neo" || password !== "matrix") {
+      setErrorMessage("Access Denied. Try again, choomba.");
       setError(true);
       setTimeout(() => setError(false), 4000);
       return;
@@ -28,65 +27,70 @@ export default function Login() {
 
   return (
     <>
-      <div className="min-h-screen bg-black bg-opacity-95 text-pink-400 font-mono flex flex-col items-center justify-center px-4">
-        <div className="w-full max-w-md bg-[#12071a] border border-pink-600 rounded-lg shadow-[0_0_25px_#ff00c8] p-8">
-          <h1 className="text-2xl font-extrabold mb-6 select-none text-pink-500 tracking-widest">
-            <span className="text-pink-600">root@kali</span>:~#{" "}
-            <span className="text-pink-400">login</span>
+      <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black flex items-center justify-center px-6">
+        <div className="relative w-full max-w-lg bg-black bg-opacity-90 border border-red-600 rounded-lg shadow-[0_0_30px_#ff0000] p-10 overflow-hidden">
+          {/* Glitch background effect */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('/glitch-noise.png')] opacity-20 pointer-events-none animate-glitch"></div>
+
+          <h1 className="relative z-10 text-4xl font-extrabold text-red-600 uppercase tracking-widest mb-8 select-none">
+            <span className="drop-shadow-[0_0_5px_red]">KALI HOLLYWOOD</span>
           </h1>
+
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit();
             }}
-            className="space-y-5"
+            className="relative z-10 space-y-6"
             spellCheck={false}
           >
             <div>
-              <label htmlFor="username" className="block mb-1 select-none text-pink-400">
-                Username:
+              <label
+                htmlFor="username"
+                className="block text-red-400 uppercase mb-2 tracking-wider select-none"
+              >
+                USERNAME
               </label>
               <input
                 id="username"
                 type="text"
-                placeholder="root"
+                placeholder="neo"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full bg-transparent border border-pink-600 rounded px-3 py-2 text-pink-300 placeholder-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 caret-pink-500 transition"
+                className="w-full bg-transparent border border-red-600 rounded px-4 py-3 text-white placeholder-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 caret-red-500 tracking-wider text-lg transition"
                 autoComplete="username"
                 autoFocus
               />
             </div>
             <div>
-              <label htmlFor="password" className="block mb-1 select-none text-pink-400">
-                Password:
+              <label
+                htmlFor="password"
+                className="block text-red-400 uppercase mb-2 tracking-wider select-none"
+              >
+                PASSWORD
               </label>
               <input
                 id="password"
                 type="password"
-                placeholder="****"
+                placeholder="matrix"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-transparent border border-pink-600 rounded px-3 py-2 text-pink-300 placeholder-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 caret-pink-500 transition"
+                className="w-full bg-transparent border border-red-600 rounded px-4 py-3 text-white placeholder-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 caret-red-500 tracking-wider text-lg transition"
                 autoComplete="current-password"
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-pink-700 to-pink-400 hover:from-pink-400 hover:to-pink-700 text-black font-bold py-2 rounded shadow-[0_0_25px_#ff00c8] transition"
+              className="w-full bg-red-700 hover:bg-red-600 text-white font-extrabold py-3 rounded shadow-[0_0_15px_#ff0000] tracking-widest transition"
             >
-              Login
+              ENTER THE MATRIX
             </button>
           </form>
-          <p className="mt-8 text-center text-pink-400 text-xs select-none tracking-widest">
-            Linux Terminal Access Portal — Hacker Mode
-          </p>
-        </div>
-      </div>
 
       {error && <TerminalToast message={errorMessage} />}
 
-      <ForDeveloper />
+        </div>
+      </div>
     </>
   );
 }

@@ -49,3 +49,21 @@ body {
 .blink-animation {
   animation: blink 1s step-start 0s infinite;
 }
+
+        @keyframes glitch {
+          0% {
+            clip-path: inset(0 0 100% 0);
+          }
+          50% {
+            clip-path: inset(10% 0 40% 0);
+          }
+          100% {
+            clip-path: inset(0 0 100% 0);
+          }
+        }
+        .animate-glitch {
+          animation: glitch 2s infinite ease-in-out;
+          mix-blend-mode: screen;
+          background-size: cover;
+          filter: grayscale(80%);
+        }

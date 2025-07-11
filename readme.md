@@ -13,12 +13,12 @@ Senin için komut yazarsın, o da sana "DELETING DELETING" diye sistem çökerir
 
 ## 🧪 Özellikler
 
-- ✅ `help`, `clear`, `echo`, `hack`, `exit`, `start` gibi temel terminal komutları
-- 👤 `change-name` ile kullanıcı adını değiştir
-- 🔐 `sudo su` komutuyla **root** ol
-- 💣 `sudo rm -rf /` komutuyla **sistem silme simülasyonu** (root olmadan çalışmaz)
-- 🤖 `whoami` komutuyla kullanıcı bilgini gör
-- 🎥 Arka planda Matrix efekti
+- ✅ `help`, `clear`, `echo`, `hack`, `exit`, `start` gibi temel terminal komutları  
+- 👤 `change-name` ile kullanıcı adını değiştir  
+- 🔐 `sudo su` komutuyla **root** ol  
+- 💣 `sudo rm -rf /` komutuyla **sistem silme simülasyonu** (root olmadan çalışmaz)  
+- 🤖 `whoami` komutuyla kullanıcı bilgini gör  
+- 🎥 Arka planda Matrix efekti  
 - ⚡ Tamamen tarayıcı tabanlı, client-side çalışır
 
 ---
