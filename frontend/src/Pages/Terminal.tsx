@@ -8,6 +8,8 @@ function sleep(ms: number) {
 export default function Terminal() {
   const [input, setInput] = useState("");
   const [name, setName] = useState("root");
+      const [isRoot, setIsRoot] = useState(false);
+
   const [history, setHistory] = useState<string[]>([
     "Welcome to Hacker Tycoon Terminal!",
     "Type 'help' to see commands.",
@@ -56,7 +58,7 @@ useEffect(() => {
     };
 
     if (cmd) {
-      await cmd.execute(args, addHistory);
+    await cmd.execute(args, addHistory, { isRoot, setIsRoot });
       if (cmdName === "exit") setExited(true);
     } else {
       addHistory(`bash: command not found: ${cmdName}`);
